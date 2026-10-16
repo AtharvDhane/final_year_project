@@ -1,0 +1,178 @@
+DEEP LEARNING-BASED AUTOMATED PLANT DISEASE DETECTION
+USING CONVOLUTIONAL NEURAL NETWORKS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Authors: Priya Sharma, Ankit Verma, Dr. R. Mehta
+Institution: Department of Computer Science, IIT Delhi
+Published: Journal of Agricultural Informatics, Vol. 12, No. 3, 2024
+DOI: 10.1016/j.jai.2024.03.045
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+ABSTRACT
+
+Plant diseases are responsible for significant crop losses worldwide, affecting
+food security and farmer livelihoods. Traditional methods of disease detection
+rely on manual inspection by experts, which is time-consuming, expensive, and
+often inaccurate. This paper presents a Convolutional Neural Network (CNN)-based
+automated system for detecting and classifying plant leaf diseases using image
+processing. The proposed model, trained on the PlantVillage dataset containing
+54,306 images across 38 disease categories, achieved an accuracy of 96.8% on
+validation data. The model uses a modified ResNet-50 architecture with data
+augmentation to improve generalization. Experiments demonstrate that the system
+outperforms traditional machine learning methods including SVM and Random Forest
+by 12-15% in classification accuracy.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. INTRODUCTION
+
+Agricultural productivity is severely impacted by plant diseases, which cause
+estimated losses of 20-40% of global crop production annually (FAO, 2021).
+Early and accurate identification of plant diseases is critical for timely
+intervention and treatment. However, expert-based diagnosis is not scalable
+due to the limited number of plant pathologists available globally.
+
+The rapid advancement of deep learning and computer vision has opened new
+possibilities for automated plant disease detection. CNNs have demonstrated
+remarkable success in image classification tasks and have been increasingly
+applied to agricultural challenges.
+
+1.1 Problem Statement
+
+The primary challenge addressed in this research is the development of an
+accurate, efficient, and scalable automated plant disease detection system
+that can be deployed in resource-constrained environments such as smartphones
+used by farmers in rural areas.
+
+1.2 Research Objectives
+
+1. To develop a CNN-based model for multi-class plant disease classification
+2. To evaluate performance on diverse plant species and disease types
+3. To optimize the model for edge device deployment
+4. To compare performance with traditional ML approaches
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+2. LITERATURE REVIEW
+
+Mohanty et al. (2016) were among the first to apply deep learning to plant
+disease detection, achieving 99.35% accuracy using AlexNet on the PlantVillage
+dataset in controlled laboratory conditions. However, their work noted
+significant performance drops (31.4%) when tested on real-world field images.
+
+Chen et al. (2020) proposed a GAN-based data augmentation approach to address
+class imbalance in plant disease datasets, improving minority class detection
+by 18%. Their study was limited to 5 crop types and did not address real-time
+deployment.
+
+Zhang et al. (2022) implemented MobileNetV2 for mobile deployment, achieving
+94.3% accuracy with a model size of only 14MB. However, their work focused
+exclusively on tomato plants.
+
+A critical gap in existing literature is the lack of studies addressing
+multi-crop, multi-disease detection under varied lighting and field conditions
+with a deployable model size suitable for low-end smartphones.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+3. METHODOLOGY
+
+3.1 Dataset
+
+The PlantVillage dataset was used, containing 54,306 images spanning:
+- 14 crop species (tomato, potato, apple, corn, etc.)
+- 38 disease categories including healthy class
+- Images captured under controlled and semi-field conditions
+- Resolution: 256x256 pixels (RGB)
+
+Data split: 80% training (43,445), 10% validation (5,430), 10% testing (5,431)
+
+3.2 Data Augmentation
+
+To improve generalization and address class imbalance:
+- Random horizontal and vertical flips
+- Random rotation (±30 degrees)
+- Color jitter (brightness, contrast, saturation)
+- Random cropping and resizing
+- Gaussian noise addition
+
+3.3 Model Architecture
+
+Modified ResNet-50:
+- Input: 224x224x3
+- Pre-trained on ImageNet (transfer learning)
+- Custom classification head: GlobalAvgPool → FC(512) → ReLU → Dropout(0.5) → FC(38) → Softmax
+- Total parameters: 24.8M (fine-tuned last 2 layers)
+
+3.4 Training Configuration
+
+- Optimizer: Adam (lr=0.0001, β1=0.9, β2=0.999)
+- Loss: Categorical Cross-Entropy
+- Batch size: 32
+- Epochs: 50 (early stopping patience=5)
+- Hardware: NVIDIA Tesla T4 GPU (Google Colab Pro)
+- Framework: TensorFlow 2.10 / Keras
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+4. RESULTS AND DISCUSSION
+
+4.1 Classification Accuracy
+
+| Method           | Accuracy | Precision | Recall | F1-Score |
+|-----------------|----------|-----------|--------|----------|
+| SVM (baseline)  | 83.2%    | 81.7%     | 80.9%  | 81.3%    |
+| Random Forest   | 81.6%    | 79.4%     | 78.8%  | 79.1%    |
+| AlexNet         | 91.4%    | 90.2%     | 89.7%  | 89.9%    |
+| MobileNetV2     | 93.8%    | 92.6%     | 91.4%  | 92.0%    |
+| ResNet-50 (ours)| 96.8%    | 95.9%     | 96.1%  | 96.0%    |
+
+4.2 Disease-specific Performance
+
+Best performing classes: Tomato Bacterial Spot (99.1%), Corn Gray Leaf Spot (98.4%)
+Challenging classes: Apple Cedar Rust (89.3%), Grape Black Rot (88.7%)
+
+4.3 Inference Time
+
+- Server (GPU): 45ms per image
+- Edge device (Raspberry Pi 4): 380ms per image
+- Smartphone (Qualcomm 665): 210ms per image
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+5. CONCLUSION
+
+This paper presented a CNN-based automated plant disease detection system
+achieving 96.8% classification accuracy on the PlantVillage dataset. The
+modified ResNet-50 architecture with strategic data augmentation outperformed
+traditional ML methods and prior CNN implementations. Future work includes
+expanding the dataset with real-field images and developing a lightweight
+model optimized for sub-100ms inference on budget smartphones.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+REFERENCES
+
+[1] Mohanty, S. P., Hughes, D. P., & Salathé, M. (2016). Using deep learning
+    for image-based plant disease detection. Frontiers in Plant Science, 7, 1419.
+
+[2] Chen, J., et al. (2020). A GAN-based approach for plant disease data
+    augmentation. Computers and Electronics in Agriculture, 173, 105350.
+
+[3] Zhang, K., et al. (2022). Lightweight CNN for mobile plant disease detection.
+    IEEE Access, 10, 34521-34532.
+
+[4] FAO (2021). The State of Food and Agriculture. Food and Agriculture
+    Organization of the United Nations, Rome.
+
+[5] He, K., Zhang, X., Ren, S., & Sun, J. (2016). Deep residual learning for
+    image recognition. CVPR 2016, 770-778.
+
+[6] Howard, A., et al. (2018). MobileNets: Efficient convolutional neural
+    networks for mobile vision applications. arXiv:1704.04861.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+END OF PAPER
+Note: Save this file as research_paper_1.pdf using any PDF printer or Word "Save as PDF"
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

@@ -1,0 +1,186 @@
+FEDERATED LEARNING FOR PRIVACY-PRESERVING MEDICAL
+IMAGE CLASSIFICATION IN DISTRIBUTED HOSPITAL NETWORKS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Authors: Kavya Reddy, Siddharth Joshi, Dr. M. Krishnamurthy
+Institution: Department of Biomedical Engineering, BITS Pilani
+Published: IEEE Transactions on Medical Imaging, Vol. 43, No. 4, 2024
+DOI: 10.1109/TMI.2024.3201847
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+ABSTRACT
+
+Medical data sharing across hospitals is severely restricted by privacy
+regulations (HIPAA, GDPR), limiting the development of robust AI diagnostic
+models. Federated Learning (FL) enables collaborative model training without
+sharing raw patient data, making it ideal for healthcare applications. This
+paper presents FedMed, a federated learning framework for chest X-ray
+pneumonia classification across a simulated network of 8 hospitals with
+non-IID (non-independent and identically distributed) data. Using FedAvg
+with differential privacy (DP-SGD), FedMed achieves 94.1% accuracy —
+comparable to centralized training (95.2%) — while maintaining strong
+privacy guarantees (ε=2.0, δ=1e-5). The framework is evaluated for
+communication efficiency, model convergence, and robustness to Byzantine
+faults (malicious clients).
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. INTRODUCTION
+
+AI has demonstrated transformative potential in medical imaging, with deep
+learning models matching or exceeding radiologist performance for conditions
+like pneumonia, diabetic retinopathy, and skin cancer. However, training
+robust models requires large, diverse datasets that are rarely available
+in a single institution.
+
+Data sharing between hospitals is challenging due to:
+- Patient privacy regulations (HIPAA in US, PDPB in India)
+- Institutional competitive concerns
+- Data heterogeneity across equipment and populations
+- High communication overhead
+
+Federated Learning (McMahan et al., 2017) addresses this by keeping data
+local and sharing only model gradients/weights.
+
+1.1 Problem Statement
+
+Existing federated learning approaches assume IID data distribution across
+clients, which is unrealistic in medical settings where different hospitals
+see different patient populations and disease prevalences. Additionally,
+most FL frameworks lack formal privacy guarantees against gradient inversion
+attacks.
+
+1.2 Research Objectives
+
+1. Implement FedAvg with differential privacy for chest X-ray classification
+2. Evaluate performance under non-IID data distributions
+3. Analyze communication efficiency vs. model accuracy trade-offs
+4. Test Byzantine fault tolerance against malicious client attacks
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+2. BACKGROUND AND RELATED WORK
+
+McMahan et al. (2017) introduced FedAvg, the foundational FL algorithm
+that aggregates local model updates via weighted averaging.
+
+Li et al. (2020) identified the "statistical heterogeneity challenge" in
+FL, showing accuracy drops of 5-10% in non-IID settings. FedProx was
+proposed as a solution with proximal term regularization.
+
+Dwork et al. (2014) formalized differential privacy (DP) theory, providing
+mathematical guarantees against membership inference attacks.
+
+Shokri et al. (2021) demonstrated gradient inversion attacks where raw
+training images can be reconstructed from shared gradients — highlighting
+critical privacy vulnerabilities in naive FL implementations.
+
+2.1 Identified Research Gaps
+
+- No existing study combines DP-SGD + Byzantine fault tolerance for medical FL
+- Non-IID performance degradation in hospital networks not systematically studied
+- Communication overhead of DP mechanisms on bandwidth-limited hospital networks
+- Lack of evaluation on Indian hospital datasets (geographical gap)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+3. METHODOLOGY
+
+3.1 Dataset
+
+Chest X-Ray Images (Pneumonia) — Kaggle/Guangzhou Women and Children Hospital:
+- Total images: 5,863 (Pneumonia: 4,273, Normal: 1,590)
+- Split across 8 simulated hospital clients using Dirichlet distribution (α=0.5)
+  to simulate non-IID data
+- Each client: 500-900 training images, 80-150 validation images
+
+3.2 Model Architecture
+
+Base: DenseNet-121 (pre-trained on ImageNet)
+- Input: 224x224x3
+- Custom head: GlobalAvgPool → Dropout(0.3) → FC(2) → Sigmoid
+- Binary classification: Pneumonia vs. Normal
+
+3.3 Federated Learning Setup
+
+- Algorithm: FedAvg with DP-SGD (Abadi et al., 2016)
+- Privacy budget: ε=2.0, δ=1e-5
+- Noise multiplier: σ=1.1
+- Gradient clipping: C=1.0
+- Communication rounds: 100
+- Local epochs per round: 3
+- Client fraction: 0.75 (6/8 clients per round)
+- Aggregation: Weighted FedAvg (by local dataset size)
+
+3.4 Byzantine Fault Tolerance
+
+- Attack simulated: 1-2 malicious clients sending random gradients
+- Defense: Robust aggregation using Krum algorithm
+- Evaluation: Accuracy before/after attack under Krum vs. naive FedAvg
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+4. RESULTS
+
+4.1 Accuracy Comparison
+
+| Approach                    | Accuracy | AUC   | Privacy |
+|----------------------------|----------|-------|---------|
+| Centralized (no privacy)   | 95.2%    | 0.974 | None    |
+| Local only (no federation) | 87.3%    | 0.891 | High    |
+| FedAvg (no DP)             | 93.8%    | 0.961 | Low     |
+| FedMed (FedAvg + DP-SGD)   | 94.1%    | 0.958 | Strong  |
+
+4.2 Non-IID Performance (α=0.5 vs α=0.1)
+
+| Distribution | Accuracy | Convergence (rounds) |
+|-------------|----------|---------------------|
+| IID         | 94.8%    | 42                  |
+| Non-IID α=0.5| 94.1%   | 67                  |
+| Non-IID α=0.1| 91.3%   | 89                  |
+
+4.3 Byzantine Fault Tolerance
+
+| Attack Scenario                 | FedAvg Accuracy | FedMed+Krum Accuracy |
+|--------------------------------|-----------------|----------------------|
+| No attack (baseline)           | 93.8%           | 94.1%                |
+| 1 malicious client             | 89.2%           | 93.7%                |
+| 2 malicious clients            | 78.4%           | 92.9%                |
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+5. CONCLUSION
+
+FedMed demonstrates that federated learning with differential privacy can
+achieve near-centralized accuracy (94.1% vs 95.2%) while providing strong
+privacy guarantees. The Krum-based aggregation effectively mitigates Byzantine
+attacks. Future work includes extending to multi-class disease classification,
+real hospital deployment trials in India, and exploring personalized federated
+learning for improved non-IID performance.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+REFERENCES
+
+[1] McMahan, H. B., et al. (2017). Communication-efficient learning of deep
+    networks from decentralized data. AISTATS, 1273-1282.
+
+[2] Li, T., et al. (2020). Federated optimization in heterogeneous networks.
+    Proc. MLSys 2020.
+
+[3] Abadi, M., et al. (2016). Deep learning with differential privacy. CCS, 308-318.
+
+[4] Dwork, C., & Roth, A. (2014). The algorithmic foundations of differential
+    privacy. Foundations and Trends in Theoretical CS, 9(3-4), 211-407.
+
+[5] Shokri, R., et al. (2021). Membership inference attacks against ML models.
+    IEEE S&P 2017.
+
+[6] Blanchard, P., et al. (2017). Machine learning with adversaries: Byzantine
+    tolerant gradient descent. NeurIPS, 118-128.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+END OF PAPER
+Note: Save this file as research_paper_3.pdf using any PDF printer or Word "Save as PDF"
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

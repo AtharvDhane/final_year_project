@@ -1,0 +1,156 @@
+SCIENCE SYLLABUS — CLASS 10
+SUBJECT: SCIENCE (BIOLOGY + PHYSICS + CHEMISTRY)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Board: CBSE | Academic Year: 2025-26
+Total Marks: 80 (Theory) + 20 (Practical) = 100
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+UNIT 1: LIFE PROCESSES (Biology)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Weightage: 20 Marks
+
+Chapter 1: Life Processes
+- What are life processes?
+- Nutrition in plants: Autotrophic nutrition, photosynthesis
+  * Equation: 6CO2 + 6H2O → C6H12O6 + 6O2
+  * Raw materials: Sunlight, water, CO2, chlorophyll
+  * Factors affecting photosynthesis: Light intensity, CO2, temperature
+  * Heterotrophic nutrition: Saprotrophic, parasitic, holozoic
+  * Nutrition in Amoeba, Paramecium, humans
+- Respiration:
+  * Aerobic respiration: C6H12O6 + 6O2 → 6CO2 + 6H2O + ATP (38 molecules)
+  * Anaerobic respiration: fermentation in yeast, lactic acid in muscles
+  * Human respiratory system: lungs, alveoli, breathing mechanism
+  * Exchange of gases: diffusion mechanism
+- Transportation:
+  * Human circulatory system: heart (4 chambers), arteries, veins, capillaries
+  * Blood composition: RBC, WBC, platelets, plasma
+  * Blood pressure: systolic (120 mmHg), diastolic (80 mmHg)
+  * Transportation in plants: xylem (water), phloem (food)
+  * Transpiration: functions, factors affecting
+- Excretion:
+  * Human excretory system: kidneys, nephron structure and function
+  * Dialysis: hemodialysis process
+  * Excretion in plants: diffusion, stomata
+  * Osmoregulation
+
+Chapter 2: Control and Coordination
+- Nervous system: neurons, nerve impulse, reflex arc
+  * CNS: Brain (cerebrum, cerebellum, medulla oblongata), spinal cord
+  * PNS: somatic, autonomic
+- Chemical coordination: hormones
+  * Endocrine glands: pituitary, thyroid, adrenal, pancreas, gonads
+  * Deficiency diseases: goiter (iodine), diabetes (insulin)
+  * Plant hormones: auxins, gibberellins, cytokinins, ethylene, abscisic acid
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+UNIT 2: HOW THINGS WORK (Physics)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Weightage: 25 Marks
+
+Chapter 3: Electricity
+- Electric current: I = Q/t, unit: Ampere (A)
+- Potential difference: V = W/Q, unit: Volt (V)
+- Ohm's Law: V = IR
+- Resistance: R = ρL/A
+  * Factors: length, cross-section area, material, temperature
+- Series circuit: Req = R1 + R2 + R3, same current
+- Parallel circuit: 1/Req = 1/R1 + 1/R2, same voltage
+- Electric power: P = VI = I²R = V²/R, unit: Watt (W)
+- Electric energy: E = P×t, unit: kWh (kilowatt-hour)
+- Heating effect: H = I²Rt (Joule's Law)
+- Applications: electric heater, fuse, bulb
+
+Chapter 4: Magnetic Effects of Electric Current
+- Magnetic field: direction — right-hand thumb rule, Fleming's left-hand rule
+- Oersted's experiment: current produces magnetic field
+- Solenoid and bar magnet analogy
+- Force on current-carrying conductor: F = BIL
+- Electric motor: principle — conversion of electrical → mechanical energy
+- Electromagnetic induction: Faraday's law
+- Electric generator: AC/DC generators, principle
+- Domestic electric circuits: earthing, short circuit, overloading
+
+Chapter 5: Light (Refraction)
+- Refraction: bending of light at interface
+- Snell's Law: n₁ sin θ₁ = n₂ sin θ₂
+- Refractive index: n = c/v = sin i/sin r
+- Real and apparent depth
+- Total internal reflection: critical angle, optical fiber
+- Lenses: convex (converging), concave (diverging)
+- Lens formula: 1/v - 1/u = 1/f
+- Magnification: m = v/u = h'/h
+- Power of lens: P = 1/f (in meters), unit: Diopter (D)
+- Human eye: structure, accommodation, defects
+  * Myopia (short-sightedness): concave lens
+  * Hypermetropia (long-sightedness): convex lens
+  * Presbyopia: bifocal lens
+- Dispersion of light: prism, rainbow
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+UNIT 3: NATURAL PHENOMENA (Chemistry)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Weightage: 15 Marks
+
+Chapter 6: Acids, Bases and Salts
+- Acid properties: sour taste, turns litmus red, releases H⁺ ions
+- Base properties: bitter taste, turns litmus blue, releases OH⁻ ions
+- pH scale: 0-14 (acidic < 7, neutral = 7, basic > 7)
+- Neutralization reaction: Acid + Base → Salt + Water
+- Important salts: NaCl, Na₂CO₃, NaHCO₃, bleaching powder
+
+Chapter 7: Metals and Non-Metals
+- Physical properties: luster, ductility, malleability, conductivity
+- Chemical properties: reaction with O₂, water, acids, salts
+- Reactivity series: K > Na > Ca > Mg > Al > Zn > Fe > Pb > H > Cu > Ag > Au
+- Extraction of metals: ore → concentrate → oxide → metal
+- Corrosion and prevention: galvanization, anodizing, painting
+
+Chapter 8: Carbon Compounds
+- Covalent bonding: sharing of electrons
+- Carbon's unique properties: tetravalency, catenation
+- Functional groups: alcohols (-OH), aldehydes (-CHO), ketones (-CO-), carboxylic acids (-COOH)
+- Homologous series: CnH2n+2 (alkanes), CnH2n (alkenes), CnH2n-2 (alkynes)
+- Ethanol: properties, uses, denatured alcohol
+- Ethanoic acid (acetic acid): properties, ester formation
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+UNIT 4: NATURAL RESOURCES
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+Weightage: 20 Marks
+
+Chapter 9: Heredity and Evolution
+- Mendel's laws of inheritance: dominance, segregation, independent assortment
+- Monohybrid cross: Aa × Aa → 1AA:2Aa:1aa (3:1 phenotypic ratio)
+- Dihybrid cross: 9:3:3:1 ratio
+- Sex determination: XX (female), XY (male)
+- Evolution: Darwin's theory, natural selection, survival of the fittest
+- Speciation: geographic isolation, reproductive isolation
+- Evidence of evolution: homologous organs, analogous organs, fossils
+
+Chapter 10: Our Environment
+- Ecosystem: biotic and abiotic components
+- Food chain and food web
+- Trophic levels and energy flow (10% rule)
+- Biodegradable vs non-biodegradable waste
+- Ozone layer depletion: CFCs, UV radiation effects
+- Greenhouse effect: CO₂, CH₄, N₂O → global warming
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PRACTICALS (20 Marks)
+- Starch test in leaves (iodine test for photosynthesis)
+- Upward movement of water in plants
+- pH test using pH paper
+- Reactions of metals with acids
+- Refraction through glass slab
+- Magnetic field lines mapping
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+END OF SYLLABUS
+For use with: Question Paper Generator, Assignment Generator, Teaching Material Generator, Evaluation
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

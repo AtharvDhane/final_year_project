@@ -1,0 +1,48 @@
+# === IDE & Editor ===
+.vscode/
+.idea/
+*.iml
+*.swp
+*.swo
+*~
+
+# === OS Files ===
+Thumbs.db
+.DS_Store
+
+# === Environment & Secrets ===
+.env
+.env.local
+.env.production
+
+# === Java / Maven ===
+backend/target/
+backend/*.jar
+backend/*.war
+
+# === Embedded MongoDB Data ===
+backend/mongo_data/
+mongo_data/
+
+# === Uploads ===
+uploads/
+backend/uploads/
+
+# === Node.js / Frontend ===
+frontend/node_modules/
+frontend/dist/
+frontend/.cache/
+
+# === Logs ===
+*.log
+logs/
+
+# === Qdrant Binary (Large file ~80MB) ===
+qdrant/
+*.exe
+
+# === Maven Wrapper Binary ===
+maven/
+
+# === Docker volume data ===
+qdrant_data/

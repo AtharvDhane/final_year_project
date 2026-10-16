@@ -1,0 +1,119 @@
+# Smart Research & Learning Assistant - Project Architecture & Explanation
+
+## 1. Project Overview
+The **Smart Research & Learning Assistant** is a full-stack AI-powered web application designed to help different types of users (Students, Teachers, and Researchers) process, analyze, and generate insights from various educational and research documents. It leverages Large Language Models (LLMs) and Retrieval-Augmented Generation (RAG) to provide contextual answers and generate content based on uploaded files.
+
+## 2. Technology Stack
+The project is built using modern frameworks and is fully containerized using Docker.
+
+### Frontend
+- **Framework:** React 18 with Vite
+- **Styling:** Tailwind CSS, Framer Motion (animations)
+- **Routing:** React Router DOM
+- **Data Visualization:** Recharts, Mermaid (diagrams)
+- **HTTP Client:** Axios
+- **Markdown Rendering:** React Markdown with remark-gfm
+
+### Backend
+- **Language & Framework:** Java 21, Spring Boot 3.3.2
+- **AI/LLM Orchestration:** LangChain4j (integrates with OpenAI, Groq, Google Gemini)
+- **Document Processing:** 
+  - Apache PDFBox (for PDF parsing)
+  - Apache POI (for DOCX and PPTX parsing)
+- **Security:** Spring Security with JWT Authentication
+- **Boilerplate Reduction:** Lombok
+
+### Databases & Infrastructure
+- **Primary Database:** MongoDB (Spring Data MongoDB) for storing user profiles, document metadata, and application state.
+- **Vector Database:** Qdrant for storing document embeddings and enabling semantic search (RAG).
+- **Containerization:** Docker & Docker Compose (Frontend, Backend, MongoDB, Qdrant).
+
+## 3. Core Architecture & Workflow
+1. **Authentication:** Users log in and receive a JWT token. They are assigned specific roles (`ROLE_STUDENT`, `ROLE_TEACHER`, `ROLE_RESEARCHER`).
+2. **Document Upload:** Users upload files (PDF, DOCX, PPTX, TXT). 
+3. **Document Processing (Backend):** 
+   - Files are saved to the local file system (`/uploads` directory).
+   - Apache POI/PDFBox extracts text from the documents.
+   - LangChain4j chunks the text, generates embeddings (using models like `all-minilm-l6-v2`), and stores them in Qdrant.
+   - Metadata is saved in MongoDB.
+4. **AI Generation (RAG):** When a user requests a feature (e.g., "Summarize this chapter"), the backend queries Qdrant for relevant text chunks, constructs a prompt, and sends it to the LLM (Groq/Llama3 or Gemini) via LangChain4j to get a context-aware response.
+
+## 4. Detailed Working Flow (Frontend -> Backend -> AI)
+
+The system operates on a modern flow, heavily utilizing RAG (Retrieval-Augmented Generation) to make AI aware of user documents.
+
+### Step 1: User Interaction (Frontend)
+- The user interacts with the **React Vite Frontend**.
+- The UI is styled with **Tailwind CSS** and animated with **Framer Motion**.
+- When a user uploads a document or requests an AI feature, the frontend sends an HTTP request using **Axios** to the Spring Boot Backend.
+
+### Step 2: Request Handling & Document Parsing (Backend)
+- The **Spring Boot Backend** receives the file via a REST API endpoint.
+- It authenticates the request using Spring Security and JWT.
+- To read the file content, it uses **Apache PDFBox** (for PDFs) or **Apache POI** (for Word/PPT documents) to extract raw text.
+- The original file is saved locally (or in Docker volume), and metadata is stored in **MongoDB**.
+
+### Step 3: AI Embedding & Vector Storage (RAG Phase 1)
+- LLMs cannot process entire 500-page books at once. So, **LangChain4j** splits the extracted text into smaller "chunks".
+- These chunks are passed through an **Embedding Model** (e.g., `all-minilm-l6-v2`), which converts the text into mathematical vectors (arrays of numbers representing the meaning).
+- These vectors are saved in the **Qdrant Vector Database**. Qdrant is built specifically to search for these vectors incredibly fast.
+
+### Step 4: AI Context Retrieval (RAG Phase 2)
+- When the user asks the AI to do something (e.g., "Make a quiz from this chapter" or "Summarize"), the backend converts the user's request into a vector.
+- It queries **Qdrant** to find the vectors that are mathematically closest to the user's request vector. This retrieves the exact paragraphs/chunks from the uploaded document that are relevant to the request.
+
+### Step 5: LLM Response Generation (AI Processing)
+- The backend constructs a "Super Prompt". It combines the User's Request + The Context retrieved from Qdrant + System Instructions (e.g., "You are a teacher evaluating this...").
+- This prompt is sent to the LLM (via **Groq API** running Llama-3 or **Gemini API**).
+- By providing the exact context, the AI doesn't "hallucinate" or guess; it generates accurate answers based *only* on the user's uploaded document.
+
+### Step 6: Rendering the Output (Frontend)
+- The backend sends the generated text back to the React frontend.
+- The frontend uses **React Markdown** to display formatted text, bolding, lists, and tables.
+- For visual data, it uses **Recharts** (for graphs) and **Mermaid.js** (for generating flowcharts/diagrams dynamically).
+
+## 5. User Roles & Features
+### 🎓 Students (`ROLE_STUDENT`)
+- **Use Cases:** Exam prep, understanding complex topics.
+- **Uploads:** Textbooks, lecture slides, class notes.
+- **Features:**
+  - AI Summarizer
+  - Study Notes Generator
+  - Practice MCQ Quiz Generator
+  - Active Recall Flashcards
+  - ELI5 (Explain Like I'm 5)
+  - Multi-Language Translation
+
+### 👨‍🏫 Teachers (`ROLE_TEACHER`)
+- **Use Cases:** Lesson planning, grading, creating exams.
+- **Uploads:** Syllabi, past papers, reference books, student answers.
+- **Features:**
+  - Question Paper Generator
+  - Lesson Plan Creator
+  - Teaching Material Generator
+  - Performance Analyzer & Evaluation
+
+### 🔬 Researchers (`ROLE_RESEARCHER`)
+- **Use Cases:** Literature review, finding gaps, analyzing papers.
+- **Uploads:** Academic journals, conference proceedings.
+- **Features:**
+  - Paper Analyzer (methodology, results, limitations)
+  - Literature Review Generator
+  - Research Gap Finder
+  - Paper Comparison Tool
+  - Citation Extraction
+
+## 6. Directory Structure
+- `/frontend`: React application source code, configuration (Vite, Tailwind, Nginx).
+- `/backend`: Spring Boot application, Maven `pom.xml`, Java source code organized into layered architecture (`controller`, `service`, `repository`, `model`, `security`, `config`).
+- `/demo-files`: Sample documents for testing features for different roles.
+- `/uploads`: Mounted volume where user uploaded files are stored.
+- `docker-compose.yml`: Orchestrates the 4 main services (frontend, backend, mongodb, qdrant).
+- `.env`: Environment variables for API keys (Groq, Gemini) and secrets.
+
+## 7. How AI Models (Claude, GPT, Gemini) Can Help Build Reports
+If you share this document with an AI assistant, it will understand the entire context of the codebase. You can then ask it to:
+1. **Write specific implementation reports** (e.g., "Explain how the RAG pipeline is implemented in the Spring Boot backend").
+2. **Draft the Final Year Project documentation** based on these features and tech stack.
+3. **Create diagrams** (UML, architecture flow) based on the component interactions described here.
+4. **Debug issues** by knowing exactly which technologies are in play (e.g., "I have a CORS issue in Spring Boot + React, here is the architecture").

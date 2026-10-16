@@ -1,0 +1,54 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /api/v1
+
+spring:
+  application:
+    name: assistant-backend
+  data:
+    mongodb:
+      uri: ${MONGODB_URI:mongodb://localhost:27017/smart_research_assistant}
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 110MB
+
+# Embedded MongoDB persistent storage (data survives restarts)
+de:
+  flapdoodle:
+    mongodb:
+      embedded:
+        version: 7.0.0
+        databaseDir: ${MONGO_DATA_DIR:./mongo_data}
+
+# Security JWT Configuration
+jwt:
+  secret: ${JWT_SECRET:YOUR_SUPER_SECRET_JWT_KEY_HERE}
+  expiration-ms: 86400000 # 24 hours in milliseconds
+
+# Groq API Configuration (Fast Llama 3.3 70B Inference)
+groq:
+  api-key: ${GROQ_API_KEY:YOUR_GROQ_API_KEY_HERE}
+  model: ${GROQ_MODEL:openai/gpt-oss-120b}
+
+# AI Integration Configuration (Google Gemini Embeddings)
+gemini:
+  api-key: ${GEMINI_API_KEY:YOUR_GEMINI_API_KEY_HERE}
+  embedding-model: ${GEMINI_EMBEDDING_MODEL:gemini-embedding-001}
+
+# Vector DB Configuration (Qdrant)
+qdrant:
+  host: ${QDRANT_HOST:localhost}
+  port: ${QDRANT_PORT:6334} # GRPC port
+  api-key: ${QDRANT_API_KEY:}
+  collection-name: document_embeddings
+
+# Document Upload Storage Path
+storage:
+  upload-dir: ${UPLOAD_DIR:./uploads}
+
+logging:
+  level:
+    root: INFO
+    com.smartresearch.assistant: DEBUG

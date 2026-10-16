@@ -1,0 +1,166 @@
+COMPUTER SCIENCE SYLLABUS — CLASS 12
+SUBJECT: COMPUTER SCIENCE (083)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Board: CBSE | Academic Year: 2025-26 | Language: Python
+Total Marks: 70 (Theory) + 30 (Practical) = 100
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+UNIT 1: COMPUTATIONAL THINKING AND PROGRAMMING (Theory: 30 Marks)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Chapter 1: Python Revision Tour
+- Data types: int, float, complex, bool, str, list, tuple, dict, set
+- Operators: arithmetic, relational, logical, bitwise, assignment, identity, membership
+- Control flow:
+  * if, if-else, if-elif-else
+  * for loop (with range), while loop
+  * break, continue, pass
+- Functions:
+  * Built-in functions: len(), type(), input(), print(), range()
+  * User-defined functions: def keyword, return statement
+  * Default parameters, keyword arguments
+  * Recursion: factorial, fibonacci, tower of hanoi
+  * Lambda functions: lambda x: x*2
+- Strings:
+  * Methods: upper(), lower(), strip(), split(), join(), find(), replace()
+  * String slicing: s[start:end:step]
+  * String formatting: f-strings, format()
+- Lists:
+  * Methods: append(), extend(), insert(), remove(), pop(), sort(), reverse()
+  * List comprehension: [x**2 for x in range(10)]
+  * 2D lists (matrix)
+- Tuples: immutable, packing/unpacking, named tuples
+- Dictionaries:
+  * Methods: keys(), values(), items(), get(), update()
+  * Nested dictionaries
+- Sets: union, intersection, difference, symmetric difference
+
+Chapter 2: Functions (Advanced)
+- Scope: local, global, nonlocal
+- Modules and packages:
+  * import, from...import, import...as
+  * Built-in modules: math, random, datetime, os, sys
+  * Creating custom modules
+- Exception Handling:
+  * try, except, else, finally
+  * raise statement
+  * Exception types: ValueError, TypeError, ZeroDivisionError, FileNotFoundError
+- File Handling:
+  * Modes: r, w, a, rb, wb
+  * Functions: open(), read(), readline(), readlines(), write(), writelines(), close()
+  * with statement (context manager)
+  * CSV file handling using csv module
+
+Chapter 3: Data Structures in Python
+- Stack: LIFO, push/pop operations using list
+  * Applications: function call stack, undo/redo, browser history
+  * Implementation: using Python list as stack
+- Queue: FIFO, enqueue/dequeue using list/deque
+  * Applications: CPU scheduling, print spooler
+- Linked List: node, head, traversal (conceptual understanding)
+- Sorting Algorithms:
+  * Bubble Sort: O(n²), stable
+  * Selection Sort: O(n²), unstable
+  * Insertion Sort: O(n²), stable (best O(n) for sorted data)
+  * Quick Sort: O(n log n) average, O(n²) worst, unstable
+  * Merge Sort: O(n log n), stable, extra space O(n)
+- Searching:
+  * Linear Search: O(n)
+  * Binary Search: O(log n), requires sorted array
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+UNIT 2: COMPUTER NETWORKS (Theory: 20 Marks)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Chapter 4: Computer Networks
+- Types: LAN, MAN, WAN, PAN
+- Network topologies: Bus, Star, Ring, Mesh, Tree
+- Network devices:
+  * Hub: broadcasts to all, OSI Layer 1
+  * Switch: forwards to specific MAC, OSI Layer 2
+  * Router: connects networks, OSI Layer 3, uses IP
+  * Modem: modulates/demodulates signal
+  * Gateway: protocol conversion
+  * Repeater: signal amplifier
+  * Access Point: wireless connection
+- OSI Model (7 layers):
+  * Application Layer: HTTP, FTP, SMTP, DNS
+  * Presentation Layer: encryption, compression
+  * Session Layer: session management
+  * Transport Layer: TCP (reliable), UDP (fast)
+  * Network Layer: IP, routing
+  * Data Link Layer: MAC address, framing
+  * Physical Layer: cables, bits
+- TCP/IP Model (4 layers): Application, Transport, Internet, Network Access
+- IP Addressing:
+  * IPv4: 32-bit, 4 octets (192.168.1.1)
+  * IPv6: 128-bit, hexadecimal
+  * Classes A, B, C, D, E
+  * Subnetting: subnet mask, CIDR notation
+- Protocols:
+  * HTTP (80), HTTPS (443): web
+  * FTP (21): file transfer
+  * SMTP (25), POP3 (110), IMAP (143): email
+  * DNS (53): domain name resolution
+  * DHCP: dynamic IP assignment
+  * SSH (22): secure remote login
+- Network Security:
+  * Firewall: packet filtering, stateful inspection
+  * VPN: virtual private network
+  * SSL/TLS: encrypted communication
+  * Cybercrime types: phishing, malware, ransomware, DDoS
+  * Cybersecurity measures: strong passwords, 2FA, antivirus
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+UNIT 3: DATABASE MANAGEMENT (Theory: 20 Marks)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Chapter 5: Database Management Systems (MySQL)
+- DBMS concepts: tables, rows (tuples), columns (attributes)
+- Data types: INT, VARCHAR, CHAR, DATE, FLOAT, BOOLEAN, TEXT
+- Keys:
+  * Primary Key: unique, NOT NULL
+  * Foreign Key: references another table
+  * Candidate Key, Super Key, Composite Key
+- DDL (Data Definition Language):
+  * CREATE TABLE, ALTER TABLE, DROP TABLE
+  * ADD COLUMN, MODIFY COLUMN, DROP COLUMN
+- DML (Data Manipulation Language):
+  * INSERT INTO, UPDATE SET, DELETE FROM
+- DQL (Data Query Language):
+  * SELECT ... FROM ... WHERE
+  * ORDER BY, GROUP BY, HAVING
+  * DISTINCT, LIMIT
+- Aggregate Functions: COUNT(), SUM(), AVG(), MAX(), MIN()
+- Joins:
+  * INNER JOIN: matching rows from both tables
+  * LEFT JOIN: all from left + matching from right
+  * RIGHT JOIN: all from right + matching from left
+  * CROSS JOIN: Cartesian product
+- Subqueries: nested SELECT statements
+- Views: CREATE VIEW, virtual tables
+- Constraints: NOT NULL, UNIQUE, CHECK, DEFAULT
+- Normalization:
+  * 1NF: atomic values, no repeating groups
+  * 2NF: 1NF + no partial dependency
+  * 3NF: 2NF + no transitive dependency
+- Python-MySQL connectivity using mysql-connector-python:
+  * connect(), cursor(), execute(), fetchone(), fetchall(), commit()
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PRACTICALS (30 Marks)
+- Python programs on data structures (stack, queue)
+- Sorting algorithms implementation
+- File handling programs
+- MySQL database creation and queries
+- Python-MySQL connectivity program
+- Network connectivity commands: ping, ipconfig, nslookup
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+END OF SYLLABUS
+For use with: Question Paper Generator, Assignment Generator, Teaching Material Generator, Evaluation
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

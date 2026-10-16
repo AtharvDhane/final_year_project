@@ -1,0 +1,125 @@
+MODEL ANSWER / REFERENCE ANSWER SHEET
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Subject: Science (Biology) | Class: 10
+Topic: Photosynthesis and Respiration
+Prepared by: Teacher Reference Use Only
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+QUESTION 1 (5 Marks):
+"Explain the process of photosynthesis in detail including the raw materials,
+products, and factors affecting the rate of photosynthesis."
+
+MODEL ANSWER:
+
+Photosynthesis is the process by which green plants manufacture their own food
+using sunlight energy, carbon dioxide, and water, in the presence of chlorophyll.
+
+CHEMICAL EQUATION:
+6CO₂ + 6H₂O  →(Sunlight/Chlorophyll)→  C₆H₁₂O₆ + 6O₂
+(Carbon dioxide + Water → Glucose + Oxygen)
+
+RAW MATERIALS (Inputs):
+1. Carbon dioxide (CO₂): Absorbed from air through stomata (small pores in leaves)
+2. Water (H₂O): Absorbed by roots from soil and transported through xylem
+3. Sunlight: Radiant energy absorbed by chlorophyll pigment
+4. Chlorophyll: Green pigment present in chloroplasts of plant cells — captures light energy
+
+PRODUCTS (Outputs):
+1. Glucose (C₆H₁₂O₆): Food/energy stored for the plant
+2. Oxygen (O₂): Released as a by-product through stomata
+
+WHERE IT OCCURS: Inside chloroplasts, specifically on the thylakoid membranes (light reactions)
+and in the stroma (dark reactions/Calvin cycle)
+
+FACTORS AFFECTING PHOTOSYNTHESIS:
+1. Light Intensity: Higher light → more photosynthesis (up to saturation point)
+2. CO₂ Concentration: More CO₂ → faster rate (up to a limit)
+3. Temperature: Optimal 25-35°C; too high destroys enzymes, too low slows reactions
+4. Water Availability: Lack of water causes stomata to close, reducing CO₂ intake
+5. Chlorophyll content: More chlorophyll → more light absorption
+
+MARKING SCHEME:
+- Chemical equation (correct): 1 mark
+- Raw materials (minimum 3): 1 mark
+- Products (both): 1 mark
+- Factors (minimum 3): 1.5 marks
+- Clarity and completeness: 0.5 marks
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+QUESTION 2 (5 Marks):
+"Differentiate between aerobic and anaerobic respiration with examples."
+
+MODEL ANSWER:
+
+AEROBIC RESPIRATION:
+- Definition: Breakdown of glucose in the presence of oxygen to produce energy
+- Equation: C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O + 38 ATP (energy)
+- Location: Mitochondria (complete oxidation)
+- Products: Carbon dioxide, water, energy (ATP)
+- Energy yield: 38 ATP molecules per glucose molecule
+- Efficiency: High energy yield
+- Example: Occurs in most living organisms including humans, animals, and plants
+  (when we run/exercise, muscles use aerobic respiration)
+
+ANAEROBIC RESPIRATION:
+- Definition: Breakdown of glucose without oxygen (partial oxidation)
+- Equations:
+  * In yeast/fungi: C₆H₁₂O₆ → 2C₂H₅OH + 2CO₂ + 2 ATP (fermentation)
+    (glucose → ethanol + carbon dioxide + energy)
+  * In muscles (during heavy exercise): C₆H₁₂O₆ → 2C₃H₆O₃ + 2 ATP
+    (glucose → lactic acid + energy) — causes muscle cramps
+- Location: Cytoplasm
+- Products: Ethanol + CO₂ (yeast) OR Lactic acid (muscle cells)
+- Energy yield: Only 2 ATP molecules per glucose
+- Efficiency: Low energy yield
+
+KEY DIFFERENCES TABLE:
+| Feature        | Aerobic               | Anaerobic              |
+|---------------|----------------------|------------------------|
+| Oxygen        | Required              | Not required           |
+| Products      | CO₂ + H₂O + ATP      | Ethanol/Lactic acid+ATP|
+| Energy        | 38 ATP                | 2 ATP                  |
+| Location      | Mitochondria          | Cytoplasm              |
+| Glucose       | Completely oxidized   | Partially oxidized     |
+| Examples      | Humans, animals       | Yeast, muscle cramps   |
+
+REAL-LIFE APPLICATIONS:
+- Yeast fermentation: used in making bread, beer, wine
+- Lactic acid fermentation: curd/yogurt making
+- Muscle fatigue during intense exercise
+
+MARKING SCHEME:
+- Aerobic definition + equation: 1 mark
+- Anaerobic definition + equations (both): 1.5 marks
+- 4 correct differences: 1.5 marks
+- Real-life example: 1 mark
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+QUESTION 3 (3 Marks):
+"What is the role of stomata in plants?"
+
+MODEL ANSWER:
+
+Stomata are tiny pores (openings) present mainly on the lower surface of leaves.
+They are surrounded by specialized guard cells that control their opening and closing.
+
+ROLES OF STOMATA:
+1. Gas Exchange: Allow CO₂ to enter for photosynthesis and O₂ to exit
+2. Transpiration: Release of excess water vapor from leaves into the atmosphere
+   - This creates a pull (transpiration pull) that helps in upward movement of water
+3. Regulation: Guard cells open stomata in light (when CO₂ is needed) and close
+   in darkness or drought to prevent water loss
+
+MECHANISM OF OPENING AND CLOSING:
+- In light: Guard cells absorb water by osmosis → become turgid → stomata OPEN
+- In darkness/drought: Guard cells lose water → become flaccid → stomata CLOSE
+
+SIGNIFICANCE: Without stomata, photosynthesis cannot occur as CO₂ cannot enter
+the leaf. Over 90% of water lost by plants is through stomata (transpiration).
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+END OF MODEL ANSWER SHEET
+For use with: Evaluation & Feedback Tool (as Reference Material)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

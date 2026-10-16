@@ -1,0 +1,261 @@
+================================================================
+   SMART RESEARCH ASSISTANT - WEBSITE START KARNE KE STEPS
+================================================================
+   Project: Final Year Project - Smart Research Assistant
+   Date: October 2026
+================================================================
+
+
+╔══════════════════════════════════════════════════════════════╗
+║          DO TARIKE HAIN WEBSITE START KARNE KE               ║
+║   1. MANUAL METHOD  (Recommended for Development/Testing)    ║
+║   2. DOCKER METHOD  (Recommended for Final Presentation)     ║
+╚══════════════════════════════════════════════════════════════╝
+
+
+================================================================
+PEHLE YE CHECK KARO - SOFTWARE INSTALLED HONA CHAHIYE
+================================================================
+
+  [OK] Java 21 installed hona chahiye
+     Check karne ka command:
+     > java -version
+
+  [OK] Node.js (v18+) installed hona chahiye
+     Check karne ka command:
+     > node -v
+     > npm -v
+
+  [OK] MongoDB installed hona chahiye (Manual method ke liye)
+     Check karne ka command:
+     > mongod --version
+
+  [OK] Docker Desktop installed hona chahiye (Docker method ke liye)
+     Check karne ka command:
+     > docker --version
+
+================================================================
+METHOD 1: MANUAL METHOD (Step by Step)
+================================================================
+
+STEP 1: Project folder mein jao
+---------------------------------------
+  PowerShell ya Command Prompt open karo aur ye type karo:
+
+  > cd "C:\Users\dhane\OneDrive\Desktop\Final Year Project 369\final year project"
+
+
+STEP 2: MongoDB Start Karo (TERMINAL 1)
+---------------------------------------
+  Ek NAYA terminal/PowerShell window kholo aur type karo:
+
+  > mongod --dbpath "C:\Users\dhane\OneDrive\Desktop\Final Year Project 369\final year project\mongo_data"
+
+  [OK] Jab ye message aaye tab MongoDB ready hai:
+     "Waiting for connections on port 27017"
+
+  [!] Is terminal window ko BAND MAT KARO - chalte rehne do
+
+
+STEP 3: Qdrant Vector Database Start Karo (TERMINAL 2)
+---------------------------------------
+  Ek AUR NAYA terminal/PowerShell window kholo aur type karo:
+
+  > cd "C:\Users\dhane\OneDrive\Desktop\Final Year Project 369\final year project\qdrant"
+  > .\qdrant.exe --storage-path ".\storage"
+
+  [OK] Jab ye message aaye tab Qdrant ready hai:
+     "Qdrant is listening on port 6333"
+
+  [!] Is terminal window ko bhi BAND MAT KARO
+
+
+STEP 4: Backend (Spring Boot) Start Karo (TERMINAL 3)
+---------------------------------------
+  Ek AUR NAYA terminal/PowerShell window kholo aur type karo:
+
+  OPTION A: Ready-made script use karo (SABSE AASAAN):
+  > cd "C:\Users\dhane\OneDrive\Desktop\Final Year Project 369\final year project"
+  > .\start-backend.ps1
+
+  --- YA ---
+
+  OPTION B: JAR file directly chalao:
+  > java -Dgroq.api-key=YOUR_GROQ_API_KEY_HERE -Dgroq.model=openai/gpt-oss-120b -Dgemini.api-key=YOUR_GEMINI_API_KEY_HERE -Djwt.secret=YOUR_JWT_SECRET_HERE -jar "path\to\backend\target\assistant-backend-1.0.0.jar"
+  (Replace YOUR_GROQ_API_KEY_HERE with key from https://console.groq.com/
+   Replace YOUR_GEMINI_API_KEY_HERE with key from https://aistudio.google.com/)
+
+  [OK] Jab ye message aaye tab Backend ready hai:
+     "Started Application on port 8080"
+
+  [!] Is terminal window ko bhi BAND MAT KARO
+
+
+STEP 5: Frontend (React) Start Karo (TERMINAL 4)
+---------------------------------------
+  Ek AUR NAYA terminal/PowerShell window kholo aur type karo:
+
+  > cd "C:\Users\dhane\OneDrive\Desktop\Final Year Project 369\final year project\frontend"
+  > npm install
+  > npm run dev
+
+  [OK] Jab ye message aaye tab Frontend ready hai:
+     "Local:   http://localhost:5173/"
+
+  [!] Is terminal window ko bhi BAND MAT KARO
+
+
+STEP 6: Browser Mein Open Karo
+---------------------------------------
+  Browser (Chrome/Edge) kholo aur ye address type karo:
+
+  --> http://localhost:5173
+
+  WEBSITE READY HAI!
+
+
+================================================================
+METHOD 2: DOCKER METHOD (Sabse Aasaan - Ek Command Se Sab)
+================================================================
+
+  Ye method tabhi use karo jab Docker Desktop installed ho.
+
+  STEP 1: Docker Desktop Open Karo
+  ---------------------------------
+    Start Menu se "Docker Desktop" dhundo aur open karo.
+    Wait karo jab tak Docker icon taskbar mein green ho jaaye.
+
+  STEP 2: Project Folder Mein Jao
+  ---------------------------------
+    > cd "C:\Users\dhane\OneDrive\Desktop\Final Year Project 369\final year project"
+
+  STEP 3: Ek Command Se Sab Start Karo
+  ---------------------------------
+    > docker-compose up --build
+
+    (Pehli baar mein thoda time lagega - images download honge)
+    (Baad mein sirf "docker-compose up" use karo)
+
+  STEP 4: Browser Mein Open Karo
+  ---------------------------------
+    --> http://localhost
+
+  STEP 5: Band Karne Ke Liye
+  ---------------------------------
+    > docker-compose down
+
+
+================================================================
+QUICK REFERENCE - KYA KIS PORT PE CHALTA HAI
+================================================================
+
+  Service           | Port  | URL
+  ------------------|-------|---------------------------
+  Frontend (React)  | 5173  | http://localhost:5173
+  Backend (Spring)  | 8080  | http://localhost:8080
+  MongoDB           | 27017 | mongodb://localhost:27017
+  Qdrant (REST)     | 6333  | http://localhost:6333
+  Qdrant (gRPC)     | 6334  | localhost:6334
+
+
+================================================================
+BACKEND BUILD KARNA (Agar JAR file nahi hai)
+================================================================
+
+  Agar backend\target\assistant-backend-1.0.0.jar file nahi hai
+  to pehle build karna hoga:
+
+  > cd "C:\Users\dhane\OneDrive\Desktop\Final Year Project 369\final year project\backend"
+  > mvn clean package -DskipTests
+
+  Phir Step 4 wapas follow karo.
+
+
+================================================================
+COMMON PROBLEMS AUR UNKE SOLUTIONS
+================================================================
+
+  PROBLEM 1: "java is not recognized"
+  ------------------------------------
+    Java install nahi hai. Java 21 download karo:
+    https://www.oracle.com/java/technologies/downloads/
+
+  PROBLEM 2: "npm is not recognized"
+  ------------------------------------
+    Node.js install nahi hai. Download karo:
+    https://nodejs.org/
+
+  PROBLEM 3: "Port 8080 already in use"
+  ------------------------------------
+    PowerShell mein ye type karo:
+    > netstat -ano | findstr :8080
+    > taskkill /PID [woh_number] /F
+
+  PROBLEM 4: "Port 27017 already in use"
+  ------------------------------------
+    MongoDB pehle se chal raha hai, koi problem nahi
+    Ya phir:
+    > net stop MongoDB
+    Dobara start karo Step 2 se
+
+  PROBLEM 5: "Connection refused" error frontend mein
+  ------------------------------------
+    Check karo ki backend aur MongoDB dono chal rahe hain
+    Sahi order mein start karo:
+    MongoDB -> Qdrant -> Backend -> Frontend
+
+  PROBLEM 6: PowerShell Script nahi chali (start-backend.ps1)
+  ------------------------------------
+    PowerShell ko Administrator mode mein kholo aur ye type karo:
+    > Set-ExecutionPolicy RemoteSigned
+    Phir "Y" dabao aur Enter karo
+    Ab dobara script chalao.
+
+
+================================================================
+WEBSITE BAND KARNE KE LIYE
+================================================================
+
+  Har terminal window mein Ctrl+C dabao ek ek karke:
+  1. Frontend terminal mein Ctrl+C
+  2. Backend terminal mein Ctrl+C
+  3. Qdrant terminal mein Ctrl+C
+  4. MongoDB terminal mein Ctrl+C
+
+  YA Docker method use kiya tha to:
+  > docker-compose down
+
+
+================================================================
+SAHI ORDER (ZAROOR YAAD RAKHO!)
+================================================================
+
+  START KARNE KA ORDER:
+  1. MongoDB   (pehle)
+  2. Qdrant    (doosra)
+  3. Backend   (teesra)
+  4. Frontend  (aakhir mein)
+
+  BAND KARNE KA ORDER:
+  1. Frontend  (pehle)
+  2. Backend   (doosra)
+  3. Qdrant    (teesra)
+  4. MongoDB   (aakhir mein)
+
+
+================================================================
+PROJECT INFORMATION
+================================================================
+
+  Project Name  : Smart Research Assistant
+  Frontend      : React + Vite + TailwindCSS
+  Backend       : Spring Boot 3.x (Java 21)
+  Database      : MongoDB 7.0
+  Vector DB     : Qdrant v1.9.2
+  AI/LLM        : Groq (Llama) + Google Gemini (Embeddings)
+  API Ports     : Backend 8080 | Frontend 5173
+
+
+================================================================
+                     ALL THE BEST! (Final Year Project)
+================================================================
